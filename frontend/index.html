@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lossless - Music Subscription</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Auth Container (Login/Register) -->
+    <div id="auth-container" class="glass-panel active">
+        <h1 class="logo-title">Lossless<span class="dot">.</span></h1>
+        
+        <div class="tabs">
+            <button id="tab-login" class="tab active" onclick="switchAuthTab('login')">Login</button>
+            <button id="tab-register" class="tab" onclick="switchAuthTab('register')">Register</button>
+        </div>
+
+        <form id="auth-form">
+            <div id="register-fields" class="hidden">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="Enter password">
+            </div>
+            <button type="submit" id="auth-btn" class="primary-btn">Sign In</button>
+        </form>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app-container" class="hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <h1 class="logo-title">Lossless<span class="dot">.</span></h1>
+            </div>
+            
+            <div class="user-profile">
+                <div class="avatar" id="user-avatar">U</div>
+                <div class="user-info">
+                    <p id="user-display-name">Username</p>
+                    <button id="logout-btn" class="text-btn">Log out</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Subscriptions Section -->
+            <section class="subscriptions-section">
+                <h2>Your Subscriptions</h2>
+                <div id="subscriptions-list" class="song-grid">
+                    <!-- Rendered via JS -->
+                </div>
+                <p id="no-subs-msg" class="empty-state hidden">You haven't subscribed to any songs yet.</p>
+            </section>
+
+            <!-- Query Area Section -->
+            <section class="query-section glass-panel">
+                <h2>Discover Music</h2>
+                <form id="query-form" class="query-form">
+                    <input type="text" id="q-artist" placeholder="Artist Name">
+                    <input type="text" id="q-title" placeholder="Song Title">
+                    <input type="text" id="q-year" placeholder="Year">
+                    <input type="text" id="q-album" placeholder="Album">
+                    <button type="submit" class="primary-btn">Search</button>
+                </form>
+
+                <div id="query-results" class="song-grid mt-20">
+                    <!-- Results rendered via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
